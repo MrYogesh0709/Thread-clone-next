@@ -8,17 +8,14 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import * as z from "zod";
-import { Textarea } from "../ui/textarea";
-import { usePathname, useRouter } from "next/navigation";
-import { CommentValidation } from "@/lib/validations/thread";
 import { Input } from "../ui/input";
 import Image from "next/image";
 import { addCommentToThread } from "@/lib/actions/thread.action";
-import path from "path";
+import { usePathname } from "next/navigation";
+import { CommentValidation } from "@/lib/validations/thread";
 
 interface Props {
   threadId: string;
@@ -26,7 +23,6 @@ interface Props {
   currentUserId: string;
 }
 const Comment = ({ threadId, currentUserId, currentUserImg }: Props) => {
-  const router = useRouter();
   const pathname = usePathname();
 
   const form = useForm({
